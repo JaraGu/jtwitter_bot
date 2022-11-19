@@ -7,6 +7,7 @@ auth = tweepy.OAuth1UserHandler(
 
 api = tweepy.API(auth)
 
-public_tweets = api.home_timeline()
-for tweet in public_tweets:
-    print(tweet.text)
+myself = api.verify_credentials()
+print (myself.name) #prints your name.
+print (myself.screen_name) # prints your twitter handle
+print (myself.followers_count)
