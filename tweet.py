@@ -8,6 +8,12 @@ auth = tweepy.OAuth1UserHandler(
 api = tweepy.API(auth)
 
 myself = api.verify_credentials()
-print (myself.name) #prints your name.
-print (myself.screen_name) # prints your twitter handle
-print (myself.followers_count)
+print(myself.name)  # prints your name.
+print(myself.screen_name)  # prints your twitter handle
+print(myself.followers_count)
+
+# print out all the followers of our account
+for follower in (tweepy.Cursor(api.get_followers).items()):
+    if follower.name == 'Usernamehere':
+        print(follower.name)
+    
